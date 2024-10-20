@@ -1,0 +1,55 @@
+.container {
+  width: 100%;
+  background: var(--background-primary);
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .name {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    @media screen and (max-width: 400px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  .btn {
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: var(--accent-color-4);
+    transition-duration: .3s;
+    -moz-transition-duration: .3s;
+    -webkit-transition-duration: .3s;
+    -o-transition-duration: .3s;
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
+
+    &:hover { filter: brightness(.9); }
+  }
+
+  .del-btn {
+    background-color: #EEE;
+  }
+}

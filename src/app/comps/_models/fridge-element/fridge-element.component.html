@@ -1,0 +1,22 @@
+<div class="container">
+  <p class="name">{{ fridge.name }}</p>
+
+  <div class="info">
+    <p>Владелец: {{ fridge.owner.username }}</p>
+    @if (fridge.admins.length > 0) {
+      <p>
+        Админы:
+        @for (admin of fridge.admins; track fridge) {
+          {{ admin.username }}
+        }
+      </p>
+    }
+    <p>Участников: {{ fridge.members.length }}</p>
+    <p>Ваш статус: {{ fridge.status }}</p>
+  </div>
+
+  <div class="buttons">
+    <a [routerLink]="['/fridge', fridge.id]" class="btn">Открыть</a>
+    <button (click)="showDeleteMenu()" class="btn del-btn">Удалить</button>
+  </div>
+</div>

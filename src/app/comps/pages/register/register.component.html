@@ -1,0 +1,38 @@
+<div class="container">
+
+  <a routerLink="">
+    <div class="cross">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 12 12">
+        <path fill-rule="evenodd"
+              d="M1.707.293A1 1 0 0 0 .293 1.707L4.586 6 .293 10.293a1 1 0 1 0 1.414 1.414L6 7.414l4.293 4.293a1 1 0 0 0 1.414-1.414L7.414 6l4.293-4.293A1 1 0 0 0 10.293.293L6 4.586 1.707.293Z"
+              clip-rule="evenodd"></path>
+      </svg>
+    </div>
+  </a>
+
+  <div class="content">
+    <h1>Регистрация в T-ХОЛОД</h1>
+
+    <form class="form">
+      <label class="input-label">
+        <input minlength="5" [(ngModel)]="username" placeholder="" type="text" autocomplete="off" maxlength="30" required spellcheck="false" name="username" inputmode="text" >
+        <span>Имя пользователя</span>
+      </label>
+
+      <label class="input-label">
+        <input minlength="5" [(ngModel)]="email" placeholder="" type="email" autocomplete="off" required spellcheck="false" name="email" inputmode="email" >
+        <span>Почта</span>
+      </label>
+
+      <label class="input-label">
+        <input minlength="5" [(ngModel)]="password" placeholder="" type="password" autocomplete="off" maxlength="30" required spellcheck="false" name="password" inputmode="password" >
+        <span>Пароль</span>
+      </label>
+
+      <button (click)="send_form()" type="button" class="send-button">Создать аккаунт</button>
+    </form>
+
+    <p class="link">Уже есть аккаунт <a routerLink="/login">войти</a></p>
+  </div>
+
+</div>

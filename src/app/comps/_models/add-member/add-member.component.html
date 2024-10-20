@@ -1,0 +1,17 @@
+<div class="container" #container>
+  <div class="content">
+    <p class="header">Добавить {{admin? 'нового админа' : 'нового участника'}}</p>
+
+    <label class="input-label">
+      <input (input)="response = ''" [(ngModel)]="name" placeholder="" type="text" autocomplete="on" required spellcheck="false" name="username" inputmode="text" >
+      <span>Название</span>
+    </label>
+
+    <div class="buttons">
+      <button (click)="cancel()" class="btn">Отмена</button>
+      <button (click)="add()" class="btn del-btn">Добавить</button>
+    </div>
+
+    <p class="response">{{response}}</p>
+  </div>
+</div>

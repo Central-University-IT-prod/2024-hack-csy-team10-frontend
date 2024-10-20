@@ -1,0 +1,180 @@
+.container {
+  width:           100vw;
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  align-content:   center;
+}
+
+.content {
+  width:          100%;
+  max-width:      1200px;
+  display:        flex;
+  flex-direction: column;
+  padding:        55px;
+
+  @media screen and (max-width: 600px) {
+    padding: 55px 20px;
+  }
+}
+
+.bubbles {
+  display:         flex;
+  flex-direction:  row;
+  justify-content: flex-start;
+  gap:             40px;
+  margin-bottom:   30px;
+  overflow-x:      scroll;
+
+  @media screen and (max-width: 720px) {
+    gap: 10px;
+  }
+
+  button {
+    padding:               7px 25px;
+    font-size:             15px;
+    font-weight:           500;
+    border:                none;
+    outline:               none;
+    border-radius:         100px;
+    -moz-border-radius:    100px;
+    -webkit-border-radius: 100px;
+    background:            #e2e8f0;
+    user-select:           none;
+    cursor:                pointer;
+
+    @media screen and (max-width: 540px) {
+      font-size: 14px;
+      padding:   7px 20px;
+    }
+  }
+
+  .chosen {
+    background: var(--accent-color-4);
+    color:      var(--text-primary);
+  }
+}
+
+.scroll-top-btn {
+  cursor:              pointer;
+  width:               40px;
+  height:              40px;
+  position:            absolute;
+  bottom:              20px;
+  right:               20px;
+  background:          var(--accent-color-4);
+  border:              none;
+  outline:             none;
+  display:             flex;
+  align-items:         center;
+  align-content:       center;
+  justify-content:     center;
+  border-radius:       100%;
+  transition-duration: .3s;
+
+  &:hover {
+    background: var(--accent-color-4);
+  }
+
+  svg {
+    width:     20px;
+    height:    20px;
+    fill:      var(--secondary-color);
+    transform: rotate(-90deg);
+  }
+}
+
+.products-content {
+  display:               grid;
+  grid-auto-rows:        1fr;
+  grid-template-columns: repeat(5, 1fr);
+  gap:                   20px;
+
+  @media screen and (max-width: 950px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media screen and (max-width: 700px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 440px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .add-card {
+    .image {
+      overflow: hidden;
+      padding: 0!important;
+      align-items: flex-end!important;
+      align-content: flex-end!important;
+      justify-content: flex-end!important;
+      position: relative;
+
+      .addon-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+      svg {
+        width: 60%;
+      }
+    }
+    .product-name {
+      font-weight: 600;
+    }
+  }
+
+  .product {
+    .image {
+      width:           100%;
+      aspect-ratio:    1 / 1;
+      display:         flex;
+      align-items:     center;
+      align-content:   center;
+      justify-content: center;
+      padding:         10px;
+      border-radius:   8px;
+      background:      #e2e8f0;
+
+      img {
+        mix-blend-mode: multiply;
+        object-fit:     contain;
+        max-width:      100%;
+        max-height:     100%;
+      }
+    }
+
+    .product-name {
+      height: 40px;
+      margin:             10px 0;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      display:            -webkit-box;
+      overflow:           hidden;
+      text-overflow:      ellipsis;
+    }
+
+    .product-count {
+      height: 19px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      width:                 100%;
+      display:               flex;
+      justify-content:       center;
+      align-content:         center;
+      align-items:           center;
+      padding:               5px 0;
+      border:                none;
+      outline:               none;
+      border-radius:         100px;
+      -moz-border-radius:    100px;
+      -webkit-border-radius: 100px;
+      background:            #e2e8f0;
+      transition-duration:   .3s;
+
+      &:hover { color: red; }
+    }
+  }
+}

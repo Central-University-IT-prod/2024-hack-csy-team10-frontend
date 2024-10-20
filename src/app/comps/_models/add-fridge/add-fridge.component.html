@@ -1,0 +1,15 @@
+<div class="container" #container>
+  <div class="content">
+    <p class="header">Добавить новый холодильник</p>
+
+    <label class="input-label">
+      <input [(ngModel)]="name" placeholder="" type="text" autocomplete="on" maxlength="20" required spellcheck="false" name="fridge_name" inputmode="text" >
+      <span>Название</span>
+    </label>
+
+    <div class="buttons">
+      <button (click)="cancel()" class="btn">Отмена</button>
+      <button (click)="add()" class="btn del-btn">Добавить</button>
+    </div>
+  </div>
+</div>

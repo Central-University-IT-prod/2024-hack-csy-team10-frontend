@@ -1,0 +1,6 @@
+@import '../add-fridge/add-fridge.component.css';
+
+.response {
+  color: red;
+  margin-top: 20px;
+}

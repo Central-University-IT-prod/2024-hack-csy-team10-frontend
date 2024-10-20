@@ -1,0 +1,149 @@
+<div class="container">
+  <div class="content">
+
+    <div class="bubbles">
+      <button [class.chosen]="option === 'products'" (click)="option = 'products'">Продукты</button>
+      <button [class.chosen]="option === 'wishes'" (click)="option = 'wishes'">Желания</button>
+      <button [class.chosen]="option === 'members'" (click)="option = 'members'">Участники</button>
+      <button [class.chosen]="option === 'admins'" (click)="option = 'admins'">Админы</button>
+    </div>
+
+    <div class="products-content">
+      @if (option === 'products') {
+        <div class="card product add-card">
+          <div class="image">
+            <img class="addon-image" src="product-background-2.png" alt="">
+            <img src="product-background.png" alt="">
+          </div>
+
+          <p class="product-name" style="height: 69px!important;">Добавьте продукт в холодильник</p>
+
+          <button (click)="addProduct()" class="btn">Добавить</button>
+        </div>
+        @for (product of products; track products) {
+          <div class="card product">
+            <div class="image">
+              <img src="product-image.png">
+            </div>
+
+            <p class="product-name">{{ product.name }}</p>
+
+            <p class="product-count">Кол-во: {{ product.count }}</p>
+
+            <button class="btn" (click)="open(product, false)">Показать</button>
+          </div>
+        }
+      } @else if (option === 'wishes') {
+        <div class="card product add-card">
+          <div>
+            <div class="image">
+              <img style="filter: grayscale(.7);" class="addon-image" src="product-background-2.png" alt="">
+              <img style="filter: grayscale(.7);" src="product-background.png" alt="">
+            </div>
+
+            <p class="product-name" style="height: 69px!important;">Добавить пожелание</p>
+          </div>
+
+          <button (click)="addWish()" class="btn">Добавить</button>
+        </div>
+
+        @for (wish of fridge.wishes; track products) {
+          <div class="card product">
+            <div class="image">
+              <img style="filter: grayscale(.7);" src="product-image.png">
+            </div>
+
+            <p class="product-name">{{ wish.title }}</p>
+
+            <p class="product-count">Кол-во: {{ wish.count }}</p>
+
+            <button class="btn" (click)="open(wish, true)">Показать</button>
+          </div>
+        }
+      } @else if (option === 'members') {
+        @if (fridge.status === 'Админ' || fridge.status === 'Владелец') {
+          <div class="card product add-card">
+            <div>
+              <div class="image">
+                <img src="add-member.png" alt="">
+              </div>
+
+              <p class="product-name" style="height: 20px!important;">Добавить участника</p>
+            </div>
+
+            <button (click)="addMember(fridge, false)" class="btn">Добавить</button>
+          </div>
+        }
+
+        @for (member of fridge.members; track products) {
+          <div class="card product">
+            <div class="image">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <defs>
+                  <linearGradient id="dsId_Uhf_53GHvJ0_linear_1525_526" x1="10.5" y1="1" x2="10.5" y2="10.608"
+                                  gradientUnits="userSpaceOnUse">
+                    <stop stop-color="currentColor"></stop>
+                    <stop offset="1" stop-opacity=".5" stop-color="currentColor"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M3 19a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v3H3v-3Z" fill="currentColor"></path>
+                <path opacity=".35" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.223 2.952a2.454 2.454 0 0 1-2.177 1.32H11.59a2.455 2.455 0 0 0-2.454 2.455v3.88A4.5 4.5 0 0 0 16.5 7.137V4.273c0-.47-.1-.917-.278-1.32Z"
+                      fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.223 2.952A3.274 3.274 0 0 0 13.227 1H7.5v6.136a4.49 4.49 0 0 0 1.636 3.472v-3.88a2.455 2.455 0 0 1 2.455-2.455h2.455c.946 0 1.767-.536 2.177-1.32Z"
+                      fill="url(#dsId_Uhf_53GHvJ0_linear_1525_526)"></path>
+              </svg>
+            </div>
+
+            <p class="product-name" style="height: 20px;">{{ member.username }}</p>
+
+            @if (fridge.status === 'Владелец' && !findInAdmins(fridge.admins, member)) {
+              <button (click)="makeAdmin(fridge, member)" style="background: var(--accent-color-4); margin-bottom: 5px;"
+                      class="btn">сделать админом
+              </button>
+            } @else if (fridge.status === 'Владелец' && member.username !== fridge.owner.username) {
+              <button (click)="deleteAdmin(fridge, member)" style="background: var(--accent-color-4); margin-bottom: 5px;"
+                      class="btn">сделать участником
+              </button>
+            }
+
+            @if (member.username !== fridge.owner.username) {
+              <button (click)="deleteMember(fridge, member)" class="btn">Удалить</button>
+            }
+          </div>
+        }
+      } @else {
+        @for (admin of fridge.admins; track products) {
+          <div class="card product">
+            <div class="image">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <defs>
+                  <linearGradient id="dsId_Uhf_53GHvJ0_linear_1525_526" x1="10.5" y1="1" x2="10.5" y2="10.608"
+                                  gradientUnits="userSpaceOnUse">
+                    <stop stop-color="currentColor"></stop>
+                    <stop offset="1" stop-opacity=".5" stop-color="currentColor"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M3 19a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v3H3v-3Z" fill="currentColor"></path>
+                <path opacity=".35" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.223 2.952a2.454 2.454 0 0 1-2.177 1.32H11.59a2.455 2.455 0 0 0-2.454 2.455v3.88A4.5 4.5 0 0 0 16.5 7.137V4.273c0-.47-.1-.917-.278-1.32Z"
+                      fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.223 2.952A3.274 3.274 0 0 0 13.227 1H7.5v6.136a4.49 4.49 0 0 0 1.636 3.472v-3.88a2.455 2.455 0 0 1 2.455-2.455h2.455c.946 0 1.767-.536 2.177-1.32Z"
+                      fill="url(#dsId_Uhf_53GHvJ0_linear_1525_526)"></path>
+              </svg>
+            </div>
+
+            <p class="product-name" style="height: 20px;">{{ admin.username }}</p>
+
+            @if (admin.username !== fridge.owner.username) {
+              <button (click)="deleteAdmin(fridge, admin)" class="btn">Сделать участником</button>
+            }
+          </div>
+        }
+      }
+    </div>
+
+  </div>
+</div>

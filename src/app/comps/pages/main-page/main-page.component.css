@@ -1,0 +1,177 @@
+.container {
+  width:          100vw;
+  padding:        48px;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  align-content:  center;
+
+  @media screen and (max-width: 600px) {
+    padding: 48px 20px;
+  }
+
+  .content {
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    gap: 76px;
+
+    @media screen and (max-width: 600px) {
+      gap: 50px;
+    }
+  }
+}
+
+.about {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  align-content:  center;
+  gap:            15px;
+
+  @media screen and (max-width: 540px) {
+    gap: 10px;
+  }
+
+  .solid-btn {
+    margin-top: 20px;
+    padding:                         13px 58px;
+    border-radius:                   8px;
+    -webkit-border-radius:           8px;
+    -moz-border-radius:              8px;
+    outline:                         none;
+    border:                          none;
+    font-size: clamp(15px, 2vw, 20px);
+    font-weight: 500;
+    background-color: rgb(255, 221, 45);
+
+    &:hover {
+      background-color: rgb(217, 188, 39);
+    }
+
+    @media screen and (max-width: 450px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 540px) {
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+  }
+
+  img {
+    width: 80%;
+  }
+}
+
+.block {
+  .header {
+    text-align: center;
+    font-size:   min(3em, max(2.5em, 5vw));
+    font-weight: 600;
+
+    @media screen and (max-width: 540px) {
+      font-size: clamp(20px, 6.5vw, 30px);
+    }
+
+    @media screen and (max-width: 350px) {
+      font-size: 20px;
+    }
+  }
+
+  .sub-header {
+    text-align: center;
+    font-size: clamp(13px, 1.5vw, 18px);
+    color:     var(--text-secondary);
+
+    @media screen and (max-width: 540px) {
+      font-size: 10px;
+    }
+  }
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  gap: 30px;
+
+  .cards-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex: 1 auto;
+
+    @media screen and (max-width: 650px) {
+      flex-direction: column;
+    }
+  }
+
+  .card {
+    padding: 20px;
+    background-color: var(--background-primary);
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .card-header {
+      font-size: 20px;
+      font-weight: 500;
+
+      @media screen and (max-width: 800px) {
+        font-size: 15px;
+      }
+
+      @media screen and (max-width: 650px) {
+        font-size: 18px;
+      }
+
+      @media screen and (max-width: 400px) {
+        font-size: 14px;
+      }
+    }
+
+    .card-info {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+
+      @media screen and (max-width: 800px) {
+        font-size: 12px;
+      }
+
+      @media screen and (max-width: 650px) {
+        font-size: 14px;
+      }
+
+      @media screen and (max-width: 400px) {
+        font-size: 11px;
+      }
+    }
+
+    .card-link {
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+      color: var(--accent-color-2);
+
+      @media screen and (max-width: 800px) {
+        font-size: 12px;
+      }
+
+      @media screen and (max-width: 650px) {
+        font-size: 14px;
+      }
+
+      @media screen and (max-width: 400px) {
+        font-size: 11px;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+/* VARIABLES */
+
+:root { /* fonts */
+  --ff-bitter:       "Bitter";
+  --ff-roboto:       "Roboto";
+  --ff-josefin-sans: "Josefin Sans";
+  --ff-manrope:      "Manrope";
+}
+
+:root { /* colors */
+  --primary-color:        #ffffff;
+  --secondary-color:      #000000;
+  --accent-light:         #aeecef;
+  --accent-color-1:       #0284ff;
+  --accent-color-2:       #4772fa;
+  --accent-color-3:       #d65108;
+  --accent-color-4:       #ffdd2d;
+
+  --text-primary:         #000000cc;
+  --text-secondary:       #001427;
+
+  --background-primary:   #ffffff;
+  --background-secondary: #f6f7f8
+}
+
+:root { /* sizes */
+  --side-bar-width: 300px;
+  --header-height:  80px;
+}
+
+:root { /* transition duration times */
+  --slow-transition-time: .6s;
+  --fast-transition-time: .3s;
+}

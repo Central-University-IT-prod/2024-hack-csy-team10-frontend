@@ -1,0 +1,23 @@
+<div class="container" #container>
+  <div class="content">
+    <p class="header">Добавить {{is_wish? 'новое пожелание' : 'новый продукт' }}</p>
+
+    <label class="input-label">
+      <input [(ngModel)]="name" placeholder="" type="text" autocomplete="on" required spellcheck="false" name="product_name" inputmode="text" >
+      <span>Название</span>
+    </label>
+    <label style="margin-top: 20px;" class="input-label">
+      <input [(ngModel)]="count" placeholder="" type="number" autocomplete="on" maxlength="20" required spellcheck="false" name="products_count" inputmode="number" >
+      <span>Количество</span>
+    </label>
+    <label *ngIf="!is_wish" style="margin-top: 20px;" class="input-label">
+      <input [(ngModel)]="finish_time" placeholder="" type="datetime-local" autocomplete="on" required spellcheck="false" name="finish_time" inputmode="datetime-local" >
+      <span>Окончание срока годности</span>
+    </label>
+
+    <div class="buttons">
+      <button (click)="cancel()" class="btn">Отмена</button>
+      <button (click)="add()" class="btn del-btn">Добавить</button>
+    </div>
+  </div>
+</div>

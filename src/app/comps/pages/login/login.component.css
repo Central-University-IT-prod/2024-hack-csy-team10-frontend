@@ -1,0 +1,89 @@
+@import "../../../../stylesheets/elements/input-label.css";
+@import "../../../../stylesheets/elements/send-button.css";
+
+.container {
+  width:           100vw;
+  height:          100vh;
+  display:         flex;
+  align-items:     center;
+  align-content:   center;
+  justify-content: center;
+  position:        relative;
+  background: var(--background-secondary);
+
+  @media screen and (max-width: 800px) {
+    background: var(--background-primary);
+  }
+}
+
+.cross {
+  position:              absolute;
+  top:                   10px;
+  right:                 10px;
+  width:                 32px;
+  height:                32px;
+  display:               flex;
+  align-items:           center;
+  align-content:         center;
+  justify-content:       center;
+  background-color:      rgba(36, 74, 127, .08);
+  border-radius:         100%;
+  -moz-border-radius:    100%;
+  -webkit-border-radius: 100%;
+
+  svg {
+    width:  12px;
+    height: 12px;
+  }
+}
+
+.content {
+  background:     var(--background-primary);
+  border-radius:  16px;
+  padding:        48px;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  align-content:  center;
+  gap:            20px;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 370px) {
+    padding: 20px;
+    h1 {
+      font-size: 20px;
+    }
+  }
+
+  h1 {
+    margin:      0;
+    word-break:  break-word;
+    white-space: pre-line;
+    font-family: tinkoffsans, -apple-system, blinkmacsystemfont, Segoe UI, system-ui, roboto, Helvetica Neue, sans-serif;
+  }
+
+  .form {
+    display:        flex;
+    flex-direction: column;
+    gap: 16px;
+    width:          100vw;
+    max-width:      420px;
+
+    @media screen and (max-width: 800px) {
+      max-width: unset;
+      width: 100%;
+    }
+  }
+
+  .link {
+    a {
+      cursor: pointer;
+      color: var(--accent-color-2);
+    }
+  }
+}
+
+

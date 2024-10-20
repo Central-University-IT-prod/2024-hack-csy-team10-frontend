@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="content">
+    <div class="flex-col align-center" style="gap: 5px;">
+      <div class="user-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <defs>
+            <linearGradient id="dsId_Uhf_53GHvJ0_linear_1525_526" x1="10.5" y1="1" x2="10.5" y2="10.608"
+                            gradientUnits="userSpaceOnUse">
+              <stop stop-color="currentColor"></stop>
+              <stop offset="1" stop-opacity=".5" stop-color="currentColor"></stop>
+            </linearGradient>
+          </defs>
+          <path d="M3 19a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v3H3v-3Z" fill="currentColor"></path>
+          <path opacity=".35" fill-rule="evenodd" clip-rule="evenodd"
+                d="M16.223 2.952a2.454 2.454 0 0 1-2.177 1.32H11.59a2.455 2.455 0 0 0-2.454 2.455v3.88A4.5 4.5 0 0 0 16.5 7.137V4.273c0-.47-.1-.917-.278-1.32Z"
+                fill="currentColor"></path>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M16.223 2.952A3.274 3.274 0 0 0 13.227 1H7.5v6.136a4.49 4.49 0 0 0 1.636 3.472v-3.88a2.455 2.455 0 0 1 2.455-2.455h2.455c.946 0 1.767-.536 2.177-1.32Z"
+                fill="url(#dsId_Uhf_53GHvJ0_linear_1525_526)"></path>
+        </svg>
+      </div>
+      <p>{{ profile.username }}</p>
+    </div>
+
+    @if (profile.email) {
+      <div class="info-div">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+              <linearGradient id="dsId_4aq8mH3I4X0_linear_1525_623" x1="5" y1="2" x2="8.088" y2="15.429"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-opacity=".8" stop-color="currentColor"></stop>
+                <stop offset="1" stop-opacity=".4" stop-color="currentColor"></stop>
+              </linearGradient>
+            </defs>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="m5 22 18-10H10.761C7.581 12 5 14.51 5 17.601V22Z"
+                  fill="currentColor"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="m5 2 18 10H10.761C7.581 12 5 9.49 5 6.399V2Z"
+                  fill="url(#dsId_4aq8mH3I4X0_linear_1525_623)"></path>
+          </svg>
+        </div>
+        <p>{{ profile.email }}</p>
+      </div>
+    }
+
+    <button class="btn" type="button" (click)="logout()">выйти из аккаунта</button>
+  </div>
+
+</div>
